@@ -141,6 +141,36 @@ TCP 8080
 
 If `assignPublicIp` is enabled in the service configuration, the task will be reachable via its public IP.
 
+
+## Create the CloudWatch Log Group
+
+The task definition configures the container to send logs to CloudWatch using the `awslogs` driver.
+
+ECS does **not create the log group automatically**, so it must exist before the service starts.
+
+Create the log group:
+
+```bash
+aws logs create-log-group \
+  --log-group-name /ecs/simple-python-api \
+  --region $REGION
+````
+
+If the service previously failed due to the missing log group, trigger a new deployment:
+
+```bash
+aws ecs update-service \
+  --cluster $CLUSTER_NAME \
+  --service $SERVICE_NAME \
+  --force-new-deployment \
+  --region $REGION
+```
+
+Once the log group exists, ECS will automatically create log streams for each task.
+
+```
+
+
 ---
 
 # Typical workflow
