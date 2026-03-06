@@ -124,8 +124,6 @@ runningCount: 1
 
 The container will now be running inside ECS using the task definition you registered earlier.
 
-```
-
 
 # Notes
 
