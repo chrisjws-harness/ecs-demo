@@ -107,26 +107,7 @@ The service launches the container tasks in your cluster.
 
 ---
 
-# Service Deployment
-
-The ECS service is responsible for launching and maintaining running tasks from the task definition.
-
-It uses the rendered `service.json` file to determine:
-
-- which cluster to run in
-- how many tasks to run
-- networking configuration (subnets and security group)
-- whether the task receives a public IP
-
-## Create the service
-
-```bash
-aws ecs create-service \
-  --cli-input-json file://service.json \
-  --region $REGION
-````
-
-## Verify the service
+# Verify the service
 
 ```bash
 aws ecs describe-services \
