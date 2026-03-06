@@ -168,7 +168,6 @@ aws ecs update-service \
 
 Once the log group exists, ECS will automatically create log streams for each task.
 
-```
 
 
 ---
