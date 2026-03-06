@@ -133,6 +133,12 @@ The container image must already exist in ECR:
 <ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/simple-python-api:<IMAGE_TAG>
 ```
 
+If pushing to ECR from ARM (Mac)
+
+```
+docker buildx build --platform linux/amd64 -t $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/simple-python-api:latest --push .
+```
+
 Your security group must allow inbound traffic on:
 
 ```
